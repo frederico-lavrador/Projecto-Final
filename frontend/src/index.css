@@ -1,0 +1,65 @@
+/** Fonts **/
+
+
+
+/** Styles **/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid green;
+}
+
+.container {
+
+    border: 1px solid red;
+
+}
+
+.header__wrapper {
+
+    display: flex;
+	justify-content: space-between;
+	padding: 0 2rem;
+	align-items: center;
+    
+}
+
+.header__logo h1{
+
+    font-size: 34px;
+
+}
+
+.header__logo a {
+
+    text-decoration: none;
+    color: #000000;
+
+}
+
+.header__nav ul{
+
+    display: flex;
+    align-items: right;
+    list-style-type: none;
+    padding: 0 1rem;
+    gap: 1rem;
+
+}
+
+.header__nav li {
+
+    font-size: 20px;
+
+}
+
+.footer__wrapper {
+
+    display: flex;
+	justify-content: space-around;
+	padding: 0 2rem;
+	align-items: center;
+
+}
