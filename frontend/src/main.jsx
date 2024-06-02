@@ -4,6 +4,9 @@ import App from './App.jsx'
 
 import './index.css'
 import './pages/Home/home.css'
+import './pages/Register/register.css'
+import './pages/Login/login.css'
+import './pages/Book/book.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
