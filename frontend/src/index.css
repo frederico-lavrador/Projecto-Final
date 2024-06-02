@@ -11,6 +11,14 @@
     border: 1px solid green;
 }
 
+body{
+
+    padding: 0rem 2rem;
+    margin: 0rem 1rem;
+    min-height: 85vh;
+
+}
+
 .container {
 
     border: 1px solid red;
@@ -34,24 +42,39 @@
 
 .header__logo a {
 
+    display: flex;
     text-decoration: none;
     color: #000000;
+    align-self: center;
+    justify-self: center;
 
 }
 
-.header__nav ul{
+.header__nav{
 
-    display: flex;
-    align-items: right;
-    list-style-type: none;
-    padding: 0 1rem;
-    gap: 1rem;
 
-}
+    && ul {
 
-.header__nav li {
+        display: flex;
+        align-items: right;
+        list-style-type: none;
+        padding: 1rem 1rem;
+        gap: 1rem;
 
-    font-size: 20px;
+    }
+
+    && li {
+
+         font-size: 20px;
+
+    }
+
+    && a {
+        
+        text-decoration: none;
+        color: #000000;
+
+    }
 
 }
 

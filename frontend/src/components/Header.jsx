@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 function Header() {
 
     return (
@@ -5,12 +7,18 @@ function Header() {
 				<div className='container'>
 					<div className='header__wrapper'>
 						<div className='header__logo'>
-							<a href="#"><h1>Book Store</h1></a>
+							<Link to='/'>
+								<h1>Book Store</h1>
+							</Link>
 						</div>
 						<nav className='header__nav'>
 							<ul>
-								<li>Login</li>
-								<li>Cart(0)</li>
+								<li>
+									<Link to='/login'>Login</Link>
+								</li>
+								<li>
+									<Link to='/cart'>Cart(0)</Link>
+								</li>
 							</ul>
 						</nav>
 					</div>

@@ -1,8 +1,6 @@
 .register{
 
-    padding: 1rem 2rem;
-    margin: 0 auto;
-    min-height: 87vh;
+    
 
 }
 
@@ -10,12 +8,12 @@
 
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
-    padding: 0 5rem;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
     gap: 2rem;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    min-height: 89vh;
 
     && h2{
 

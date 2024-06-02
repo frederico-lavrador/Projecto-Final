@@ -1,3 +1,5 @@
+import {Link } from 'react-router-dom';
+
 function Login() {
 
     return (
@@ -15,8 +17,9 @@ function Login() {
 								<input type='text' className='form__password' required />
 							</div>
 							<div className='login__button'>
-								<button type='submit'>Login</button>
-							</div>
+							<button type='submit'>Login</button>
+						</div>
+						<Link to='/register'>Don't have an account? Sign up!</Link>
 						</form>
 					</div>
 				</div>
