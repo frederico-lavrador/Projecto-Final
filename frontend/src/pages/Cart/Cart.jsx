@@ -12,19 +12,24 @@ function Cart() {
 							<div className='item__data'>
 								<h3>Title</h3>
 								<div className='item__quantity'>
-									<button>+</button>
+									<button>
+										<i class='fa fa-plus' style={{ fontSize: 30 + 'px' }} />
+									</button>
 									<p>69</p>
-									<button>-</button>
-									<p>420.00</p>
-									{/* This is the remove item button */}
-									<button>x</button>
+									<button>
+										<i class='fa fa-minus' style={{ fontSize: 30 + 'px' }} />
+									</button>
+									<p>420.00€</p>
+									<button>
+										<i class='fa fa-close' style={{ fontSize: 30 + 'px' }}/>
+									</button>
 								</div>
 							</div>
 						</div>
 						<hr />
 						<div className='cart__total'>
 							<p>
-								Total: <span>420.00</span>
+								Total: <span>420.00€</span>
 							</p>
 							<button className='cart__checkoutBtn'>Checkout</button>
 						</div>

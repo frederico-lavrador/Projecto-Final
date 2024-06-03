@@ -1,6 +1,8 @@
-/** Fonts **/
+/** Header/Footer Font **/
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-
+/** Body Font **/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');;
 
 /** Styles **/
 
@@ -8,29 +10,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 body{
 
-    padding: 0rem 2rem;
-    margin: 0rem 1rem;
     min-height: 85vh;
+    background-color: #f7f7f7;
+    font-family: Montserrat;
 
 }
 
-.container {
+/* .container {
 
     border: 1px solid red;
 
-}
+} */
 
 .header__wrapper {
 
     display: flex;
 	justify-content: space-between;
-	padding: 0 2rem;
+	padding: .5rem 2rem;
 	align-items: center;
+    font-family: Philosopher;
+    background-color:#218ee7;
     
 }
 
@@ -64,8 +68,14 @@ body{
     }
 
     && li {
+        
+        font-size: 20px;
 
-         font-size: 20px;
+        && :hover{
+
+            text-decoration: underline;
+
+        }
 
     }
 
@@ -80,9 +90,11 @@ body{
 
 .footer__wrapper {
 
+    font-family: Philosopher;
     display: flex;
 	justify-content: space-around;
 	padding: 0 2rem;
 	align-items: center;
+    
 
 }

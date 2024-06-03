@@ -14,7 +14,7 @@ function Login() {
 							</div>
 							<div>
 								<label>Password: </label>
-								<input type='text' className='form__password' required />
+								<input type='password' className='form__password' required />
 							</div>
 							<div className='login__button'>
 							<button type='submit'>Login</button>
