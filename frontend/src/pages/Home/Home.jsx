@@ -8,12 +8,12 @@ function Home() {
                     <div className='home__searchbar'>
                         <input type='text' name='' id='' placeholder='Search a book...' />
                     </div>
-                    <div className="home__recentBooks">
+                    {/* <div className="home__recentBooks">
                         <h2>New Releases</h2>
                         <div className="home__recentList">
                             <h3>Under Construction...</h3>
                         </div>
-                    </div>
+                    </div> */}
 				</div>
 			</div>
         </section>
