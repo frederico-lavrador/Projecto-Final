@@ -50,4 +50,40 @@ router.get('/fetch-and-insert', async (req, res) => {
 	}
 });
 
+router.get('/:isbn', async (req, res) => {
+	const { isbn } = req.params;
+
+	try {
+		
+		const book = await prisma.book.findUnique({ where: { isbn } });
+
+		if (book) {
+			res.json(book);
+		} else {
+			
+			const response = await axios.get(`https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data`);
+			const bookData = response.data[`ISBN:${isbn}`];
+
+			if (bookData) {
+				
+				const insertedBook = await prisma.book.create({
+					data: {
+						isbn: isbn,
+						title: bookData.title,
+						author: bookData.author_name ? bookData.author_name.join(', ') : 'Unknown Author',
+						price: Math.random() * 50, // Just for testing, replace it with actual price if available
+					},
+				});
+
+				res.json(insertedBook);
+			} else {
+				res.status(404).json({ error: 'Book not found' });
+			}
+		}
+	} catch (error) {
+		console.error('Error fetching book data:', error);
+		res.status(500).json({ error: 'Internal server error' });
+	}
+});
+
 export default router;

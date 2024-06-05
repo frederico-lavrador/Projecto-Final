@@ -1,21 +1,67 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from '../../api/axios';
+
 function Book() {
+
+	const { isbn } = useParams();
+	const [bookData, setBookData] = useState(null);
+
+	useEffect(() => {
+
+		const fetchBookData = async () => {
+
+			try {
+				
+				const response = await axios.get(`/books/${isbn}`);
+
+				setBookData(response.data);
+
+			} catch (error) {
+				
+				console.error('Error fetching book data', error);
+
+			}
+
+		};
+
+		if (isbn) {
+
+			fetchBookData();
+
+		}
+
+	}, [isbn]);
+
+	if (!bookData) {
+		
+		return <div>Loading...</div>;
+
+	}
 
     return (
 			<section id='book' className='book'>
 				<div className='container'>
 					<div className='book__wrapper'>
 						<div className='book__image'>
-							<img src='https://placehold.co/400x500' alt='' />
+							<img src={`https://covers.openlibrary.org/b/isbn/${bookData.isbn}-L.jpg` || 'https://placehold.co/400x500'} alt={bookData.title} />
 						</div>
 						<div className='book__data'>
-							<h2>Title</h2>
-							<p>Author</p>
+							<h2>
+								<span>Title: </span>
+								{bookData.title}
+							</h2>
+							<p>
+								<span>Author: </span>
+								{bookData.author}
+							</p>
 							<hr />
-							<p>Description</p>
+							<p>
+								<span>ISBN: </span>
+								{bookData.isbn}
+							</p>
 							<hr />
-							<p>ISBN</p>
-							<hr />
-							<p>Price</p>
+							<p>{bookData.price.toFixed(2)}€</p>
 							<div className='cart__button'>
 								<button>Add to Cart</button>
 							</div>

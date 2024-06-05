@@ -59,6 +59,8 @@
 
 }
 
+
+
 .home__searchBtn {
 
     font-family: Montserrat;
@@ -77,6 +79,20 @@
     align-items: left;
     justify-content: left;
     width: 50%;
+    gap: 2rem;
+
+    && h4{
+
+        font-size: 34px;
+        align-self: center;
+
+    }
+
+}
+
+.home__bookItem {
+
+    display: flex;
     gap: 2rem;
 
 }

@@ -17,7 +17,7 @@ export const router = createHashRouter([
 				element: <Home />,
 			},
 			{
-				path: '/book',
+				path: '/book/:isbn',
 				element: <Book />,
 			},
 			{
