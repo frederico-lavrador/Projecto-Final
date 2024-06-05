@@ -31,9 +31,9 @@ model Order {
 
 model Book {
   id       Int      @id @default(autoincrement())
-  title    String
-  author   String
   isbn     String   @unique
+  title    String   @db.VarChar(255)
+  author   String
   price    Float
   orders   OrderItem[]
 }
@@ -41,8 +41,8 @@ model Book {
 model OrderItem {
   id       Int      @id @default(autoincrement())
   orderId  Int
-  bookId   Int
+  bookIsbn String
   quantity Int
   order    Order    @relation(fields: [orderId], references: [id])
-  book     Book     @relation(fields: [bookId], references: [id])
+  book     Book     @relation(fields: [bookIsbn], references: [isbn])
 }
