@@ -3,31 +3,24 @@ import jwt from 'jsonwebtoken';
 import prisma from '../config.js';
 
 export const register = async (req, res) => {
+	console.log(req.body); // Log the request body to see what data is being received
 
-    const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+	const { username, email, password } = req.body;
+	const hashedPassword = await bcrypt.hash(password, 10);
 
-    try {
-        
-        const newUser = await prisma.user.create({
+	try {
+		const newUser = await prisma.user.create({
+			data: {
+				username,
+				email,
+				password: hashedPassword,
+			},
+		});
 
-            data: {
-
-                username,
-                password: hashedPassword,
-
-            },
-            
-        });
-
-        res.status(201).json(newUser);
-
-    } catch (error) {
-        
-        res.status(501).json({ error: 'User registration failed' });
-
-    }
-
+		res.status(201).json(newUser);
+	} catch (error) {
+		res.status(501).json({ error: 'User registration failed' });
+	}
 };
 
 export const login = async (req, res) => {
