@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from '../../api/axios';
+import { useCart } from '../../contexts/CartContext';
 
 function Book() {
 
 	const { isbn } = useParams();
 	const [bookData, setBookData] = useState(null);
+	const { addToCart } = useCart();
 
 	useEffect(() => {
 
@@ -63,7 +65,7 @@ function Book() {
 							<hr />
 							<p>{bookData.price.toFixed(2)}€</p>
 							<div className='cart__button'>
-								<button>Add to Cart</button>
+								<button onClick={() => addToCart(bookData)}>Add to Cart</button>
 							</div>
 						</div>
 					</div>

@@ -107,3 +107,13 @@
     height: 30px;
 
 }
+
+.no__items {
+
+    font-size: 24px;
+    padding: 5rem 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}

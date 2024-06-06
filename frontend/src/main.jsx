@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './routes.jsx'
+import { CartProvider } from './contexts/CartContext.jsx';
 
 //* Pages Styles *//
 import './index.css'
@@ -12,14 +13,15 @@ import './pages/Book/book.css'
 import './pages/Cart/cart.css'
 import './pages/Error/error.css'
 
-{
-  //* Leave default code here, just in case *//
-  
+//* Leave default code here, just in case *//
+{ 
 	/* <React.StrictMode>
     <App />
   </React.StrictMode>, */
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <CartProvider>
+    <RouterProvider router={router} />
+  </CartProvider>
 )
