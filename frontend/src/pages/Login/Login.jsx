@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Login() {
+
 	const [formData, setFormData] = useState({ username: '', password: '' });
 	const [error, setError] = useState(null);
+	const { setIsLoggedIn,setAuthUser } = useAuth();
+	const navigate = useNavigate();
 
 	const handleChange = e => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,6 +21,12 @@ function Login() {
 			const response = await axios.post('http://localhost:5000/users/login', formData);
 			console.log('Login success:', response.data);
 			localStorage.setItem('token', response.data.token);
+
+			setIsLoggedIn(true);
+			setAuthUser(response.data.username);
+			
+			navigate('/');
+
 		} catch (error) {
 			if (error.response) {
 				setError(error.response.data.error);
@@ -47,6 +59,7 @@ function Login() {
 						<div className='login__button'>
 							<button type='submit'>Login</button>
 						</div>
+						<Link to='/register'>Don't have an account? Sign up now!</Link>
 					</form>
 				</div>
 			</div>

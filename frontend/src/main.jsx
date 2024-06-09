@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './routes.jsx'
 import { CartProvider } from './contexts/CartContext.jsx';
+import { AuthProvider } from './contexts/AuthContext.jsx';
 
 //* Pages Styles *//
 import './index.css'
@@ -21,7 +22,9 @@ import './pages/Error/error.css'
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <CartProvider>
-    <RouterProvider router={router} />
-  </CartProvider>
-)
+	<AuthProvider>
+		<CartProvider>
+			<RouterProvider router={router} />
+		</CartProvider>
+	</AuthProvider>
+);
