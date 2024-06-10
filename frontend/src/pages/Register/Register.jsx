@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Register() {
@@ -67,6 +68,7 @@ function Register() {
 						<div className='register__button'>
 							<button type='submit'>Register</button>
 						</div>
+						<Link to='/login'>Already have an account? Sign in!</Link>
 					</form>
 				</div>
 			</div>

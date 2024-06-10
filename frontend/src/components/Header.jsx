@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useCart} from 	'../contexts/CartContext';
 
 function Header() {
 
-	const {isLoggedIn, authUser} = useAuth();
+	const { isLoggedIn, setIsLoggedIn, setAuthUser, authUser } = useAuth();
+	const { cart } = useCart();
+	
+	const handleLogout = () => {
+
+		setAuthUser(null);
+		setIsLoggedIn(false);
+
+		localStorage.removeItem('token');
+		console.log('Logout success!');
+
+	};
 
     return (
 			<section id='header' className='header'>
@@ -17,15 +29,17 @@ function Header() {
 						<nav className='header__nav'>
 							<ul>
 								{isLoggedIn ? (
-								<>
-									<li>
-										<p>Welcome, {authUser}</p>
-									</li>
+									<>
 										<li>
-											<Link to='/'>Logout</Link>
+											<p>Welcome, {authUser}</p>
 										</li>
 										<li>
-											<Link to='/cart'>Cart(0)</Link>
+											<Link to='/' onClick={handleLogout}>
+												Logout
+											</Link>
+										</li>
+										<li>
+											<Link to='/cart'>Cart({cart.length})</Link>
 										</li>
 									</>
 								) : (
@@ -35,10 +49,6 @@ function Header() {
 										</li>
 										<li>
 											<Link to='/register'>Register</Link>
-										</li>
-										{/* O carrinho vai ficar exclusivamente para logged in users */}
-										<li>
-											<Link to='/cart'>Cart(0)</Link>
 										</li>
 									</>
 								)}
